@@ -1,0 +1,28 @@
+clc;
+clear all;
+close all;
+N=30;
+f=0.05;
+n=0:N-1;
+x=sin(2*pi*f*n);
+disp('Interpolation by factor I=2');
+I=2;
+xi=upsample(x,I);
+xii=interp(x,I);
+figure('name','Interpolation by factor I=2','NumberTitle','off');
+subplot(311);
+stem(n,x);
+xlabel('n');
+ylabel('x(n)');
+title('Original Signal');
+subplot(312);
+stem(0:N*I-1,xi);
+xlabel('n');
+ylabel('xi(n)');
+title('Signal after Upsampling');
+subplot(313);
+stem(0:N*I-1,xii);
+xlabel('n');
+ylabel('xii(n)');
+title('Signal after Intepolation');
+%Interpolation by factor I=2
